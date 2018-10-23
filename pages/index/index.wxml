@@ -1,0 +1,34 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='header colorBase'>
+    <image 
+      src='../../assets/images/aboutMeImage.png' 
+      mode='scaleToFill' 
+      class='figure'></image>
+
+    <view bindtap='giveCall'>
+      <image
+        src='../../assets/images/phone.png'
+        mode='scaleToFill'
+        class='phone'></image>
+     </view>
+   
+  </view>
+
+  <view class='content colorBase'>
+    <view class='sheet'>
+      <view class='contentHeader'>
+        <image 
+          class='contentHeaderImg'
+          src='../../assets/images/baseInfo.png'></image>
+          <text class='contentDes textColor'>基础信息</text>  
+      </view>
+      <view class='textSelection textColor'>
+        <text>金峰杰</text>
+        <text>男 | 26 (1992年)</text>
+        <text>现就职于用友软件公司 | NC公共产品部</text>
+        <text>前端开发</text>
+      </view>
+    </view>
+  </view>  
+</view>

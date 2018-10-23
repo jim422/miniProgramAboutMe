@@ -1,0 +1,12 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#2C2930",
+    "navigationBarTitleText": "我的简历",
+    "navigationBarTextStyle":"white"
+  }
+}
