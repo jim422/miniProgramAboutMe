@@ -1,0 +1,22 @@
+<!--components/work-experience/work-experience.wxml-->
+<view class='textSelection textColor'>
+  <!-- <text>2016/08～2018/09: 微播易</text>
+  <text>2018/10～至今: 用友</text> -->
+
+  <i-steps direction="vertical">
+    <i-step icon="right" status="finish">
+      <view slot="title" class='step-text-color'>2016/08</view>
+      <view slot="content" class='step-text-color'>加入微播易</view>
+    </i-step>
+
+    <i-step icon="right" status="finish">
+      <view slot="title" class='step-text-color'>2018/09</view>
+      <view slot="content" class='step-text-color'>离开微播易</view>
+    </i-step>
+
+    <i-step icon='enter' status='finish'>
+      <view slot='title' class='step-text-color'>2018/10</view>
+      <view slot='content' class='step-text-color'>加入用友</view>
+    </i-step>
+  </i-steps>
+</view>

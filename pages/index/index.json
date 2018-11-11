@@ -1,1 +1,8 @@
-{}
+{
+  "usingComponents": {
+    "base-info": "../../components/base-info/index",
+    "work-experience": "../../components/work-experience/work-experience",
+    "common-map": "../../components/common-map/common-map",
+   "project-experience": "../../components/project-experience/project-experience"
+  }
+}

@@ -1,0 +1,8 @@
+.tips-container {
+  position: absolute;
+  background: yellow;
+  visibility: hidden;
+}
+.tips-show {
+  visibility: visible;
+}

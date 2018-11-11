@@ -1,0 +1,4 @@
+<!--components/project-experience/project-experience.wxml-->
+<i-cell-group>
+  <i-cell title='直播达人TOP榜' is-link url='/pages/ranking-list/ranking-list'></i-cell>
+</i-cell-group>

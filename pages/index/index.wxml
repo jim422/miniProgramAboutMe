@@ -1,34 +1,62 @@
 <!--index.wxml-->
 <view class="container">
   <view class='header colorBase'>
-    <image 
-      src='../../assets/images/aboutMeImage.png' 
-      mode='scaleToFill' 
-      class='figure'></image>
+    <!-- <image src='../../assets/images/aboutMeImage.png' mode='scaleToFill' class='figure'></image> -->
 
     <view bindtap='giveCall'>
-      <image
-        src='../../assets/images/phone.png'
-        mode='scaleToFill'
-        class='phone'></image>
-     </view>
-   
+      <image src='../../assets/images/phone.png' mode='scaleToFill' class='phone'></image>
+    </view>
+
   </view>
 
   <view class='content colorBase'>
-    <view class='sheet'>
-      <view class='contentHeader'>
-        <image 
-          class='contentHeaderImg'
-          src='../../assets/images/baseInfo.png'></image>
-          <text class='contentDes textColor'>基础信息</text>  
-      </view>
-      <view class='textSelection textColor'>
-        <text>金峰杰</text>
-        <text>男 | 26 (1992年)</text>
-        <text>现就职于用友软件公司 | NC公共产品部</text>
-        <text>前端开发</text>
-      </view>
-    </view>
-  </view>  
+    <swiper class='classify'>
+      <swiper-item>
+        <view class='sheet'>
+          <view class='contentHeader'>
+            <image class='contentHeaderImg' src='../../assets/images/baseInfo.png'></image>
+            <text class='contentDes textColor'>基础信息</text>
+          </view>
+          <base-info></base-info>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class='sheet'>
+          <view class='contentHeader'>
+            <image class='contentHeaderImg' src='../../assets/images/work.png'></image>
+            <text class='contentDes textColor'>工作经历</text>
+          </view>
+
+          <view class='ladder-shaped'>
+            <view class='ladder-shaped-left'></view>
+            <view class='ladder-shaped-right'></view>
+          </view>
+          <view  class='work-experience-step'>
+            <work-experience></work-experience>
+          </view>
+        </view>
+      </swiper-item>
+
+      <swiper-item>
+        <view class='sheet'>
+          <view class='contentHeader'>
+              <image class='contentHeaderImg' src='../../assets/images/project_experience.png'></image>
+              <text class='contentDes textColor'>项目经历</text>
+          </view>
+
+          <view class='textSelection textColor'>
+          <project-experience class='project-experience'></project-experience>
+          </view>
+        </view>
+      </swiper-item>
+
+      <swiper-item>
+        <view class='sheet'>
+          <common-map test="{{testP}}" id='common-map'></common-map>
+          <text style='color: white'>{{testP}}</text>
+        </view>
+      </swiper-item>
+    </swiper>
+
+  </view>
 </view>

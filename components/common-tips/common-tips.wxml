@@ -1,0 +1,12 @@
+<view>
+  <slot name='trriger-el' catchtap='trigger' id='{{name}}'></slot>
+  <view class='tips-container  {{ visible ? "tips-show" : "" }}' style='width: {{width + "px"}}; height: {{height + "px"}}; position: absolute; top: {{top}}; left: {{left}};'>
+  <view wx:if='{{title}}' class='tips-title'>{{title}}</view>
+  <view class='tips-body'><slot name='content'></slot></view>
+  <view class='tips-footer'>
+    <button wx:if='{{cancel}}'>{{cancel}}</button>
+    <button wx:if='{{confirm}}'>{{confirm}}</button>
+  </view>
+</view>
+</view>
+

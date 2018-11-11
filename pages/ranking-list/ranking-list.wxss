@@ -1,0 +1,85 @@
+/* pages/ranking-list/ranking-list.wxss */
+page {
+  background: rgb(48, 44, 66);
+  color: white;
+}
+.ranking-item {
+  display: flex;
+  flex-direction: rows;
+  align-items: center;
+}
+
+.account-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.account {
+  width: 270rpx;
+}
+.ranking-numb {
+  width: 40rpx;
+  font-size: 50rpx;
+  margin: 0 15rpx;
+}
+.numb-high {
+  font-size: 60rpx;
+  color: #E84E59;
+}
+.account-padding-box {
+  padding: 10rpx 0;
+  position: relative;
+}
+
+.ranking-sex {
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: middle;
+}
+
+.account-name {
+  width: 200rpx;
+  margin-left: 10rpx;
+  position: absolute;
+  top: 14rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.platform_icon_list {
+  display: inline-block;
+  width: 40rpx;
+  height: 40rpx;
+  background-image: url('http://chuanbo.weiboyi.com/style/module/images/icon/platform_zhibo_current_2x_v2.png');
+  background-size: 100%;
+}
+
+.icon_108 {
+  background-position: 0 -434rpx;
+}
+
+.icon_105 {
+  background-position: 0 -672rpx;
+}
+
+.icon_25 {
+  background-position: 0 -197rpx;
+}
+
+.icon_106 {
+  background-position: 0 -395rpx;
+}
+
+.icon_119 {
+  background-position: 0 -553rpx;
+}
+.tips {
+  display: inline-block;
+}
+.other-data{
+  margin-left: 10rpx;
+}

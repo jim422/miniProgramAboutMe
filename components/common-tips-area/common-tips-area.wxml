@@ -1,0 +1,4 @@
+<!--components/common-tips-area/common-tips-area.wxml-->
+<view class='tips-area-container' bindtips='clickFn' bindtap='handle'>
+  <slot></slot>
+</view>

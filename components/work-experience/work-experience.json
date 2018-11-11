@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "i-steps": "../iview-weapp/steps/index",
+    "i-step": "../iview-weapp/step/index",
+    "i-icon": "../iview-weapp/icon/index"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "i-icon": "../../components/iview-weapp/icon",
+    "i-modal": "../../components/iview-weapp/modal",
+    "i-collapse": "../../components/iview-weapp/collapse",
+    "i-collapse-item": "../../components/iview-weapp/collapse-item",
+    "common-tips-area": "../../components/common-tips-area/common-tips-area",
+    "common-tips": "../../components/common-tips/common-tips"
+  }
+}

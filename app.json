@@ -1,12 +1,13 @@
 {
-  "pages":[
+  "pages": [
+    "pages/ranking-list/ranking-list",
     "pages/index/index",
     "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#2C2930",
     "navigationBarTitleText": "我的简历",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
   }
 }

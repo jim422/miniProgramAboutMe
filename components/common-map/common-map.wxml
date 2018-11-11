@@ -1,0 +1,12 @@
+<!--components/common-map/common-map.wxml-->
+<view style='position: relative'>
+<map 
+  id='map'
+  style='width: 100%; height: 400rpx; position: relative; z-index: 100'
+  key='S2OBZ-SG3R3-XJE36-3WSVH-ND7NT-HIF5Y'
+  bindregionchange="regionchange"
+  longitude="{{centerX}}" 
+  latitude="{{centerY}}"
+></map>
+
+</view>

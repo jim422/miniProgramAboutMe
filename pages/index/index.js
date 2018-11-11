@@ -7,7 +7,8 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    
   },
   giveCall: function(event) {
     console.log(app)
@@ -16,7 +17,7 @@ Page({
     })
   },
   onLoad: function () {
-   
+    console.log(this.selectComponent('#common-map'))
   },
   getUserInfo: function(e) {
     
