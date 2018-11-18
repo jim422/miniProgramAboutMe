@@ -29,7 +29,7 @@ Component({
       allList.forEach(item => {
         if (name === item.data.name) {
           item.setData({
-            visible: true
+            visible: !item.data.visible
           });
         } else {
           item.setData({

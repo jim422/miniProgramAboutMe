@@ -1,4 +1,8 @@
-<!--components/project-experience/project-experience.wxml-->
-<i-cell-group>
-  <i-cell title='直播达人TOP榜' is-link url='/pages/ranking-list/ranking-list'></i-cell>
-</i-cell-group>
+<view class='project-experience'>
+  <i-cell-group >
+    <i-cell title='全平台价格逻辑更改' i-class='project'></i-cell>
+    <i-cell title='直播达人TOP榜' is-link url='/pages/ranking-list/ranking-list'></i-cell>
+    <i-cell title='任务大厅' is-link url='/pages/task-hall/task-hall'></i-cell>
+  </i-cell-group>
+</view>
+

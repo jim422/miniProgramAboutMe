@@ -1,0 +1,12 @@
+<view class='special-data'>
+  <view>
+    粉丝数：{{props.live_account_followers_count}}
+  </view>
+  <view>
+    主播收入：{{props.live_account_contribution_sum}}
+  </view>
+
+  <view>
+    被赞次数： {{props.live_account_praises_count}}
+  </view>
+</view>

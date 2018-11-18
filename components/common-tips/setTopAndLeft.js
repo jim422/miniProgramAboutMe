@@ -5,7 +5,7 @@
 
 function leftBottom(positionInfo, params) {
   let left = positionInfo.offsetLeft - params.properties.width + 'px';
-  let top = positionInfo.offsetTop - params.properties.height + 'px';
+  let top = positionInfo.pageY - params.properties.height + positionInfo.elHeight + 'px';
 
   params.setData({
     top: top,
@@ -15,12 +15,12 @@ function leftBottom(positionInfo, params) {
 
 function leftTop(positionInfo, params) {
 
-  let left = positionInfo.clientX - params.properties.width + 'px';
+  let left = positionInfo.offsetLeft - params.properties.width + 'px';
 
   //如果距离顶部高度小自身高度的1/2（因为有一半的内容会被截取） 那就在点击的坐标高度上显示，
-  let top = positionInfo.clientY < params.properties.height/ 2 
-    ? positionInfo.pageY + 'px'
-    : positionInfo.clientY - params.properties.height/3 + 'px'
+  let top = positionInfo.clientY < params.properties.height/3
+    ? positionInfo.pageY - 10 + 'px'
+    : positionInfo.pageY - params.properties.height/3 + 'px'
   params.setData({
     top: top,
     left: left

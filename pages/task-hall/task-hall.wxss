@@ -1,0 +1,43 @@
+.category {
+  margin: 20rpx 0; 
+  padding: 0 32rpx;
+  font-size: 30rpx;
+}
+.category-item {
+  height: 40rpx;
+  line-height: 40rpx;
+  margin-bottom: 10rpx;
+}
+.category-item-text{
+  display: inline-block;
+  color: #F18A06;
+  float: left;
+}
+.platforms-container{
+  display: inline-block;
+  width: 540rpx;
+}
+.content-container {
+  display: inline-block;
+  width: 240rpx;
+}
+.platforms, .content{
+  height: 40rpx!important;
+  line-height: 40rpx!important;
+}
+.detail {
+  position: relative
+}
+.receive-task{
+  display: inline-block;
+  position: absolute;
+  top: -40rpx;
+  left: 480rpx;
+  width: 150rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #F18A06;
+  border: 1px solid #F18A06;
+  border-radius: 40rpx;
+  text-align: center;
+}

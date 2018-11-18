@@ -1,8 +1,10 @@
 {
   "pages": [
-    "pages/ranking-list/ranking-list",
+    "pages/task-hall/task-hall",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/ranking-list/ranking-list"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,1 +1,10 @@
-/* components/project-experience/project-experience.wxss */
+.project-experience {
+  width: 700rpx;
+  margin: 0 auto;
+}
+.project-list i-cell {
+  width: 60rpx;
+}
+.project-experience--project{
+  color: red;
+}

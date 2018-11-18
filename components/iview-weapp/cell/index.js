@@ -83,5 +83,8 @@ Component({
         updateIsLastCell (isLastCell) {
             this.setData({ isLastCell });
         }
+    },
+    options: {
+      addGlobalClass: true,
     }
 });

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "i-card": "../../components/iview-weapp/card/index",
+    "i-tabs": "../../components/iview-weapp/tabs/index",
+    "i-tab": "../../components/iview-weapp/tab/index"
+  }
+}

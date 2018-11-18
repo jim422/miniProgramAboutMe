@@ -28,7 +28,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+  
   },
 
   /**
@@ -63,30 +63,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
-  },
-  showOtherData: function(e) {
-    console.log(e)
-    let self = this;
-    let touch = e.touches[0];
-    let query = wx.createSelectorQuery();
-    
-    query.select(e.target.id).boundingClientRect();
-    query.exec(function(res) {
-      self.setData({
-        positionInfo: {
-          offsetLeft: e.target.offsetLeft,
-          offsetTop: e.target.offsetTop,
-          clientX: touch.clientX,
-          clientY: touch.clientY,
-          pageX: touch.pageX,
-          pageY: touch.pageY,
-          width: res.width,
-          height: res.height
-        },
-        visible: !self.data.visible
-      })
-    })
 
   }
 })

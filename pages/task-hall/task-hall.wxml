@@ -1,0 +1,27 @@
+<view>
+  <view class='category'>
+    <view class='category-item'>
+      <view class='category-item-text'>发布平台:</view>
+      <i-tabs current="{{  }}" scroll bindchange="" i-class='platforms' class='platforms-container'>
+        <i-tab wx:for='{{platformList}}' wx:key="{{item.pid}}"key="{{item.pid}}" title="{{item.text}}"></i-tab>
+      </i-tabs>
+    </view>
+    <view class='category-item'>
+      <view class='category-item-text'>推广内容:</view>
+      <i-tabs i-class='content' class='content-container'>
+        <i-tab key='novel' title='小说'></i-tab>
+        <i-tab key='link' title='链接'></i-tab>
+      </i-tabs>
+    </view>
+
+  </view>
+  <view wx:for='{{list}}' wx:key="{{index}}">
+    <i-card title="{{item.name}}" extra="{{'佣金：'  + item.friendly_wby_proportion}}" thumb='{{item.ttp_cover_image}}'>
+      <view slot="content">类型：{{item.category.name}}</view>
+      <view slot="footer" class='detail'>
+        {{item.config.show_item.commission}}
+        <view class='receive-task'>立即领取</view>
+      </view>
+    </i-card>
+  </view>
+</view>

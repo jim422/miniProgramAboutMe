@@ -1,8 +1,26 @@
 .tips-container {
   position: absolute;
-  background: yellow;
+  background: #fff;
   visibility: hidden;
+  border-radius: 5px;
+  z-index: 100
 }
+
 .tips-show {
   visibility: visible;
+}
+
+.tips-arrow {
+  visibility: hidden;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+
+.arrow-direct-left {
+  visibility: visible;
+  border-width: 6px 0 6px 6px;
+  border-left-color: #fff;
 }
