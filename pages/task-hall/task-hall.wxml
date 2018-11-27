@@ -2,26 +2,32 @@
   <view class='category'>
     <view class='category-item'>
       <view class='category-item-text'>发布平台:</view>
-      <i-tabs current="{{  }}" scroll bindchange="" i-class='platforms' class='platforms-container'>
-        <i-tab wx:for='{{platformList}}' wx:key="{{item.pid}}"key="{{item.pid}}" title="{{item.text}}"></i-tab>
+      <i-tabs current="{{currentPlatform}}" scroll bindchange="filterPlatform" i-class='platforms' class='platforms-container'>
+        <i-tab wx:for='{{platformList}}' wx:key="{{item.pid}}"key="{{item.pid}}" title="{{item.text}}" i-class='item'></i-tab>
       </i-tabs>
     </view>
     <view class='category-item'>
       <view class='category-item-text'>推广内容:</view>
-      <i-tabs i-class='content' class='content-container'>
-        <i-tab key='novel' title='小说'></i-tab>
-        <i-tab key='link' title='链接'></i-tab>
+      <i-tabs i-class='content' class='content-container' bindchange='filterTask' current='{{currentTask}}'>
+        <i-tab key='all' title='全部' i-class='item'></i-tab>
+        <i-tab key='1' title='小说' i-class='item'></i-tab>
+        <i-tab key='2' title='链接' i-class='item'></i-tab>
       </i-tabs>
     </view>
 
   </view>
-  <view wx:for='{{list}}' wx:key="{{index}}">
+  <view wx:for='{{list}}' wx:key="{{index}}" wx:if='{{list.length > 0}}'>
     <i-card title="{{item.name}}" extra="{{'佣金：'  + item.friendly_wby_proportion}}" thumb='{{item.ttp_cover_image}}'>
       <view slot="content">类型：{{item.category.name}}</view>
       <view slot="footer" class='detail'>
         {{item.config.show_item.commission}}
-        <view class='receive-task'>立即领取</view>
+        <view class='receive-task' bindtap='receiveTask' data-id='{{item.id}}' wx:if='{{item.status == 1}}'>立即领取</view>
+        <view class='receive-task' wx:if='{{item.status == 2}}'>领取成功</view>
       </view>
     </i-card>
   </view>
+  <view wx:if='{{list.length == 0}}' class='middle'>
+    sorry！ 没有对应的任务
+  </view>
 </view>
+<i-toast id='toast'></i-toast>

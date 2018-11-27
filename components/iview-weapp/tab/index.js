@@ -46,5 +46,8 @@ Component({
             const parent = this.getRelationNodes('../tabs/index')[0];
             parent.emitEvent(this.data.key);
         }
-    }
+    },
+  options: {
+    addGlobalClass: true,
+  }
 });

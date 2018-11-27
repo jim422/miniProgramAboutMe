@@ -1,10 +1,11 @@
 {
   "pages": [
-    "pages/task-hall/task-hall",
-    "pages/index/index",
-    "pages/logs/logs",
-    "pages/ranking-list/ranking-list"
     
+    "pages/index/index",
+   "pages/my-map/my-map",
+    "pages/logs/logs",
+    "pages/task-hall/task-hall",
+    "pages/ranking-list/ranking-list"
   ],
   "window": {
     "backgroundTextStyle": "light",

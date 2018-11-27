@@ -1,8 +1,10 @@
 <view class='project-experience'>
-  <i-cell-group >
-    <i-cell title='全平台价格逻辑更改' i-class='project'></i-cell>
+  <i-cell-group i-class='project'>
+    <i-cell title='全平台价格逻辑更改'></i-cell>
     <i-cell title='直播达人TOP榜' is-link url='/pages/ranking-list/ranking-list'></i-cell>
     <i-cell title='任务大厅' is-link url='/pages/task-hall/task-hall'></i-cell>
+    <i-cell title='为VIP客户提供联想词功能，并实现组件化'></i-cell>
+    <i-cell title='快采集' label='根据用户输入的微信，微博链接，后端去抓取这篇文章的相关评论，点赞信息'></i-cell>
   </i-cell-group>
 </view>
 

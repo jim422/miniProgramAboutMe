@@ -1,0 +1,66 @@
+
+<view style='position: relative'>
+<map 
+  id='myMap'
+  style='width: 100%; height: 600rpx; position: relative; z-index: 100'
+  subkey='S2OBZ-SG3R3-XJE36-3WSVH-ND7NT-HIF5Y'
+  bindregionchange="regionchange"
+  longitude="{{longitude}}" 
+  latitude="{{latitude}}"
+  markers="{{markers}}"
+  polyline="{{polyline}}"
+  include-points='{{includePoints}}'
+  bindmarkertap='markerTap'
+  show-location
+></map>
+<view class='search-el'>
+  <i-input 
+      title='公司地址'
+      value='{{company}}'
+      placeholder='若不再公司可输入地址'
+      type='text'
+      maxlength='-1'
+      bind:change='companyValueChange'
+  ></i-input>
+  
+  <i-button 
+    bind:click='searchCompany'
+    type='info'
+    i-class='search-button'
+  >搜索</i-button>
+</view>
+<scroll-view  
+  scroll-y 
+  style="width: 100%" 
+  class='search-result-container'
+  animation='{{animationData}}'
+  scroll-into-view='{{selectedMarkerId}}'
+>
+  <view 
+    class='search-result-item ' 
+    wx:for='{{resultPoints}}' 
+    wx:key='{{item.id}}' 
+    id='{{item.id}}' 
+    bindtap='observeWithMap'
+  >
+    <text class='search-result-index {{ selectedMarkerId === item.id ? "result-selected" : ""}}'>{{index + 1}}</text>
+    <text class='search-result-title {{ selectedMarkerId === item.id ? "result-selected" : ""}}'>{{item.title}}</text>
+    <i-button
+      type='primary'
+      data-lon="{{item.longitude}}"
+      data-la="{{item.latitude}}"
+      i-class='search-set-end'
+      catchtap:click="setTerminal"
+    >设为终点</i-button>
+  </view>
+</scroll-view>
+
+<i-button 
+  bind:click="fetchDistance" 
+  type="info" 
+  data-lon='{{longitude}}' 
+  data-la='{{latitude}}'
+>
+  获取我与你的距离
+</i-button>
+</view>

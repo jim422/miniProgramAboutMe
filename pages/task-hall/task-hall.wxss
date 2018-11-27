@@ -6,7 +6,7 @@
 .category-item {
   height: 40rpx;
   line-height: 40rpx;
-  margin-bottom: 10rpx;
+  margin-bottom: 20rpx;
 }
 .category-item-text{
   display: inline-block;
@@ -19,12 +19,18 @@
 }
 .content-container {
   display: inline-block;
-  width: 240rpx;
+  width: 360rpx;
 }
 .platforms, .content{
   height: 40rpx!important;
   line-height: 40rpx!important;
 }
+.item .i-tabs-tab-title-current {
+  color: #F18A06;
+}
+.item .i-tabs-tab-bar {
+  background: transparent;
+} 
 .detail {
   position: relative
 }
@@ -40,4 +46,8 @@
   border: 1px solid #F18A06;
   border-radius: 40rpx;
   text-align: center;
+}
+.middle {
+  width: 410rpx;
+  margin: 400rpx auto;
 }

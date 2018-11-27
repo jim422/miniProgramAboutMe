@@ -16,8 +16,13 @@ Page({
       phoneNumber: app.globalData.phoneNumber,
     })
   },
+  goToMap: function() {
+    wx.navigateTo({
+      url: '/pages/my-map/my-map',
+    })
+  },
   onLoad: function () {
-    console.log(this.selectComponent('#common-map'))
+    
   },
   getUserInfo: function(e) {
     

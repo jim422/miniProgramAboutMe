@@ -1,7 +1,7 @@
 <common-tips-area>
   <view wx:for="{{rankingList}}" class='ranking-item' wx:key='{{index}}'>
     <text class='ranking-numb {{index > 2 ? "" : "numb-high" }}'>{{index + 1}}</text>
-    <image src='{{item.live_account_avatar_url}}' class='account-avatar'></image>
+    <image src='{{item.live_account_avatar_url}}' class='account-avatar' lazy-load='true'></image>
     <view class='account'>
       <view class='account-padding-box'>
         <image src='{{item.live_account_gender == 1 ? "../../assets/images/male.png" : "../../assets/images/female.png"}}' class='ranking-sex'></image>

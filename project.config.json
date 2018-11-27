@@ -9,11 +9,12 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"nodeModules": true
+		"nodeModules": true,
+		"autoAudits": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.3.2",
-	"appid": "wx11c2788a898e316d",
+	"libVersion": "2.4.0",
+	"appid": "wx16a4def622373bc0",
 	"projectname": "aboutMeMiniPro",
 	"debugOptions": {
 		"hidedInDevtools": []
