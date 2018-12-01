@@ -14,11 +14,11 @@ function transit(coots) {
   for (var i = 2; i < polylineList.length; i++) {
     polylineList[i] = Number(polylineList[i - 2]) + Number(polylineList[i]) / kr;
   }
-console.log(polylineList)
+
   for (var j = 0; j < polylineList.length; j+= 2) {
     pl.push({ latitude: polylineList[j], longitude: polylineList[j + 1] })
   }
-  console.log(pl)
+  
 
   return {
     pl

@@ -4,7 +4,7 @@
     <image src='{{item.live_account_avatar_url}}' class='account-avatar' lazy-load='true'></image>
     <view class='account'>
       <view class='account-padding-box'>
-        <image src='{{item.live_account_gender == 1 ? "../../assets/images/male.png" : "../../assets/images/female.png"}}' class='ranking-sex'></image>
+        <image src='{{item.live_account_gender == 1 ? "../../assets/images/male.png" : "../../assets/images/female.png"}}' class='ranking-sex' lazy-load='true'></image>
         <text class='account-name'>{{item.live_account_textname}}</text>
       </view>
 
@@ -15,8 +15,8 @@
     </view>
     <view>
       SNBT: {{item.live_account_snbt}}
-      <common-tips title='{{"详细数据"}}' width='150' height='150' class='tips' name='{{"other_" + index}}'>
-       <i-icon type='other' size='20' class='other' data-other='{{item}}' slot='trriger-el' id="{{'other_' + index}}"></i-icon>
+      <common-tips title='{{"详细数据"}}' width='150' height='150' class='tips' tipsId='{{"other_" + index}}'>
+       <i-icon type='other' size='20' class='other' data-other='{{item}}' slot='trriger-el' id="{{'other_' + index}}" lazy-load='true'></i-icon>
        <view slot='tips-content'>
         <special props='{{item}}'></special>
        </view>

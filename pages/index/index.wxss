@@ -155,5 +155,5 @@ page {
 .project-experience .i-cell {
   background: #040e18;
   padding: 0 40rpx;
-  height: 100rpx;
+  height: 110rpx;
 }

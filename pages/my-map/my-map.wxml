@@ -1,10 +1,8 @@
-
-<view style='position: relative'>
+<view class='map-body'>
 <map 
   id='myMap'
-  style='width: 100%; height: 600rpx; position: relative; z-index: 100'
+  style='width: 100%; height: 500rpx; position: relative; z-index: 100'
   subkey='S2OBZ-SG3R3-XJE36-3WSVH-ND7NT-HIF5Y'
-  bindregionchange="regionchange"
   longitude="{{longitude}}" 
   latitude="{{latitude}}"
   markers="{{markers}}"
@@ -13,6 +11,8 @@
   bindmarkertap='markerTap'
   show-location
 ></map>
+<swiper vertical='true' style='height: 100%'>
+<swiper-item>
 <view class='search-el'>
   <i-input 
       title='公司地址'
@@ -21,12 +21,12 @@
       type='text'
       maxlength='-1'
       bind:change='companyValueChange'
+      i-class='search-address'
   ></i-input>
   
   <i-button 
     bind:click='searchCompany'
-    type='info'
-    i-class='search-button'
+    i-class='search-button common-button'
   >搜索</i-button>
 </view>
 <scroll-view  
@@ -41,26 +41,52 @@
     wx:for='{{resultPoints}}' 
     wx:key='{{item.id}}' 
     id='{{item.id}}' 
+    data-lon="{{item.longitude}}"
+    data-la="{{item.latitude}}"
     bindtap='observeWithMap'
   >
     <text class='search-result-index {{ selectedMarkerId === item.id ? "result-selected" : ""}}'>{{index + 1}}</text>
     <text class='search-result-title {{ selectedMarkerId === item.id ? "result-selected" : ""}}'>{{item.title}}</text>
-    <i-button
-      type='primary'
-      data-lon="{{item.longitude}}"
-      data-la="{{item.latitude}}"
-      i-class='search-set-end'
-      catchtap:click="setTerminal"
-    >设为终点</i-button>
+
   </view>
 </scroll-view>
+  <view class='current-terminal'>
+    当前终点：{{terminalText}}
+  </view>
+  <i-button 
+    bind:click="fetchDistance"  
+    data-lon='{{longitude}}' 
+    data-la='{{latitude}}'
+    i-class='common-button'
+  >
+    获取我与您的距离
+  </i-button>
 
-<i-button 
-  bind:click="fetchDistance" 
-  type="info" 
-  data-lon='{{longitude}}' 
-  data-la='{{latitude}}'
->
-  获取我与你的距离
-</i-button>
+  <image 
+    src='../../assets/images/moveToUp.png'
+    class='evaluate-move-up {{evaluateResultVisible ? "move-up-trigger" : ""}}'
+    wx:if='{{evaluateResultVisible}}'
+  ></image>
+  <view 
+    wx:if='{{evaluateResultVisible}}'
+    class='more-tip'
+  >向上滑动查看更多</view>
+
+
+</swiper-item>
+
+<swiper-item wx:if='{{evaluateResultVisible}}'>
+  <view class='evaluate-result-container' >
+    <view class='evaluate-emoji'>简单: 😄 ，一般：🙂 ，困难: ☹️</view>
+    <view class='evaluate-result-desc'>我与您的距离：{{distanceInfo.distance}} km {{distanceInfo.distanceScore}}</view>
+    <view class='evaluate-result-desc'>所需时间：{{distanceInfo.duration}} {{distanceInfo.durationSocre}}</view>
+    <view class='evaluate-result-desc'>出行方式: {{distanceInfo.vehicleDes}} {{distanceInfo.vehicleScore}}</view>
+  </view>
+  <canvas 
+    style='width: 100%; height: 300rpx;'
+    canvas-id="pieChart"
+  ></canvas>
+</swiper-item>
+</swiper>
 </view>
+

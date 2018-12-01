@@ -1,8 +1,8 @@
 {
   "pages": [
-    
+    "pages/my-map/my-map",
     "pages/index/index",
-   "pages/my-map/my-map",
+   
     "pages/logs/logs",
     "pages/task-hall/task-hall",
     "pages/ranking-list/ranking-list"

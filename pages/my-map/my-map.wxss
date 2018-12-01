@@ -1,19 +1,35 @@
+page {
+  background-color: rgb(53, 50, 86);
+  height: 100%;
+}
+.map-body {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
 .search-el {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
+.search-address {
+  height: 50rpx;
+  margin-top: 10rpx;
+}
 .search-button{
   height: 66rpx!important;
   line-height: 66rpx!important;
+  margin: 10rpx 0 0 20rpx!important;
 }
 .search-result-container {
   height: 0;
   padding: 0 40rpx;
+  color: white;
 }
 .search-result-item {
   width: 670rpx;
+  height: 76rpx;
 }
 .search-result-index {
   display: inline-block;
@@ -22,7 +38,7 @@
   margin-right: 10rpx;
   font-size: 28rpx;
   text-align: center;
-
+  overflow: hidden;
 }
 .search-result-title {
   display: inline-block;
@@ -41,5 +57,62 @@
   padding: 0 10rpx;
 }
 .result-selected{
-  color: rgb(179, 0, 209)
+  color: rgb(221, 61, 175)
+}
+.common-button{
+  background: rgb(67, 200, 152)!important;
+  color: white;
+}
+.current-terminal {
+  color: white;
+  margin-left: 24rpx;
+  margin-top: 5rpx;
+  font-size: 28rpx;
+}
+.evaluate-result-container{
+  padding-top: 60rpx;
+  color: white;
+  font-size: 35rpx;
+}
+.evaluate-result-container .evaluate-result-desc {
+  margin-left: 154rpx;
+  margin-top: 10rpx;
+}
+.evaluate-emoji{
+  font-size: 27rpx;
+  padding-left: 28rpx;
+  margin-bottom: 70rpx;
+}
+.evaluate-move-up{
+  display: block;
+  width: 105rpx;
+  height: 68rpx;
+  margin: 20px auto 2px auto;
+  transform-origin: 50% 50% 0px;
+}
+.move-up-trigger {
+  animation: shake 2500ms linear;
+  animation-iteration-count: 1;
+}
+@keyframes shake {
+  0% {
+    transform: translateY(0px)
+  }
+  25% {
+    transform: translateY(-12px)
+  }
+  50% {
+    transform: translateY(0px)
+  }
+  75% {
+    transform: translateY(-12px)
+  }
+  100% {
+    transform: translateY(0px)
+  }
+}
+.more-tip{
+  font-size: 26rpx;
+  color: white;
+  text-align: center;
 }

@@ -1,4 +1,3 @@
-// components/common-tips-area/common-tips-area.js
 Component({
   /**
    * 组件的属性列表
@@ -24,10 +23,10 @@ Component({
    */
   methods: {
     clickFn(e) {
-      let name = e.detail.name;
+      let tipsId = e.detail.tipsId;
       const allList = this.getRelationNodes('../common-tips/common-tips');
       allList.forEach(item => {
-        if (name === item.data.name) {
+        if (tipsId === item.data.tipsId) {
           item.setData({
             visible: !item.data.visible
           });

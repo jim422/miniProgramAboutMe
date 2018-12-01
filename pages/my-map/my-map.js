@@ -1,7 +1,10 @@
 let mapSdk = require('../../libs/qqmap-wx-jssdk/qqmap-wx-jssdk.min.js')
-import { coostsType } from './handleCoots.js'
-import { handleMarkers, myPointMarker, markersKeyMap } from './handleMarkers.js'
-const myKey = 'S2OBZ-SG3R3-XJE36-3WSVH-ND7NT-HIF5Y'
+import { coostsType } from './handleCoots.js';
+import { handleMarkers, myPointMarker, markersKeyMap, hrPointMarker } from './handleMarkers.js';
+import { howFarFromMe } from './howFarFromMe.js';
+
+const myKey = 'S2OBZ-SG3R3-XJE36-3WSVH-ND7NT-HIF5Y';
+let evaluateResultVisible = false
 Page({
   data: {
     longitude: '',
@@ -16,17 +19,18 @@ Page({
     includePoints: [],
     animationData: {},
     resultPoints: [],
-    selectedMarkerId: null
+    selectedMarkerId: null,
+    evaluateResultVisible: false,
+    evaluateAnimationData: {},
+    distanceInfo: {},
+    terminalText: ''
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     this.animation = wx.createAnimation({
       duration: 1000,
       timingFunction: 'ease'
-    }) 
+    });
+
     this.myMap = wx.createMapContext('myMap')
     this.sdk = new mapSdk({
       key: myKey
@@ -34,37 +38,20 @@ Page({
     wx.getLocation({
       type: 'wgs84',
       success: (res) => {
-        
+        let hrMarker = hrPointMarker(res.longitude, res.latitude);
+        let hrMarkerId = hrMarker[0].id
+        markersKeyMap[hrMarkerId] = hrMarker[0]
+
         this.setData({
           longitude: res.longitude,
-          latitude: res.latitude
+          latitude: res.latitude,
+          markers: myPointMarker.concat(hrMarker),
+          selectedMarkerId: hrMarker[0].id,
+          terminalText: markersKeyMap[hrMarkerId].title
         })
         this.myMap.moveToLocation()
-        
       }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
-  },
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-  regionchange: function() {
     
   },
   fetchDistance: function(e) {
@@ -90,18 +77,20 @@ Page({
 
          let coots = data.result.routes[0]
 
-         let info = coostsType['transit'](coots)
+         let info = coostsType['transit'](coots);
+         let distanceInfo = howFarFromMe(data.result.routes[0])
 
          this.setData({
            polyline: [{
              points: info.pl,
              color: '#FF0000DD',
              width: 2
-           }]
-         })
+           }],
+           distanceInfo,
+           evaluateResultVisible: true,
+        })
        }
     }
-
     wx.request(opt)
   },
   companyValueChange: function(e) {
@@ -110,7 +99,6 @@ Page({
     })
   },
   searchCompany: function() {
-    
     this.search(this.data.company)
   },
   search: function(value) {
@@ -118,6 +106,14 @@ Page({
     this.sdk.search({
       keyword: value,
       success: function (res) {
+        if (res.count == 0) {
+          wx.showToast({
+            title: '没有找到相关信息',
+            duration: 1000,
+            icon: 'none'
+          })
+        }
+
         var handledRes = handleMarkers(res)
         self.myMap.includePoints({
           padding: [10],
@@ -127,14 +123,14 @@ Page({
           }))
         })
         let height = handledRes.length > 0 
-          ? 150
-          : 0
-        self.animation.height(150).step()
+          ? 140
+          : 0;
+        self.animation.height(height).step()
         self.setData({
           markers: myPointMarker.concat(handledRes),
           resultPoints: handledRes,
           animationData: self.animation.export(),
-          selectedMarkerId: null
+          evaluateResultVisible: false
         })
         
       },
@@ -144,16 +140,14 @@ Page({
     });
   },
   markerTap: function(e) {
+    let marker = markersKeyMap[e.markerId];
     this.setData({
-      selectedMarkerId: e.markerId
+      longitude: marker.longitude,
+      latitude: marker.latitude,
+      selectedMarkerId: e.markerId,
+      terminalText: marker.title,
+      evaluateResultVisible: false
     })
-  },
-  setTerminal: function(e) {
-    this.setData({
-      longitude: e.target.dataset.lon,
-      latitude: e.target.dataset.la
-    })
-    this.fetchDistance(e)
   },
   observeWithMap(e) {
     let markerId = e.currentTarget.id;
@@ -162,7 +156,10 @@ Page({
 
     this.setData({
       longitude,
-      latitude
+      latitude,
+      selectedMarkerId: markerId,
+      terminalText: markersKeyMap[markerId].title,
+      evaluateResultVisible: false
     })
   }
 })

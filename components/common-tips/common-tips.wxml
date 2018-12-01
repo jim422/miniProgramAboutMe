@@ -1,14 +1,16 @@
 <view>
-  <slot name='trriger-el' catchtap='trigger' id='{{name}}'></slot>
-  <view wx:if="{{caculateDone}}">
-  <view class='tips-arrow {{ caculateDone ? "tips-show" : "" }} {{ visible ? arrowClass : "" }}' style='top: {{arrowTop + "px"}}; left: {{arrowLeft + "px"}}'></view>
-  <view class='tips-container  {{ caculateDone ? "tips-show" : "" }}' style='width: {{width + "px"}}; height: {{height + "px"}}; position: absolute; top: {{top}}; left: {{left}};'>
-    
-    <view wx:if='{{title}}' class='tips-title'>{{title}}</view>
-    <view class='tips-body'>
-      <slot name='tips-content'></slot>
-    </view>
-  </view>
+  <view catchtap='trigger'>
+    <slot name='trriger-el'  id='{{tipsId}}'></slot>
   </view>
   
+  <view wx:if="{{caculateDone}}">
+    <view class='tips-arrow {{ caculateDone ? "tips-show" : "" }} {{ visible ? arrowClass : "" }}' style='top: {{arrowTop + "px"}}; left: {{arrowLeft + "px"}}'></view>
+    <view class='tips-container  {{ caculateDone ? "tips-show" : "" }}' style='width: {{width + "px"}}; height: {{height + "px"}}; position: absolute; top: {{top}}; left: {{left}};'>
+      <view wx:if='{{title}}' class='tips-title'>{{title}}</view>
+      <view class='tips-body'>
+        <slot name='tips-content'></slot>
+      </view>
+    </view>
+  </view>
+
 </view>
