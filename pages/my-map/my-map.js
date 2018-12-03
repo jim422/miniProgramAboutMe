@@ -1,7 +1,7 @@
 let mapSdk = require('../../libs/qqmap-wx-jssdk/qqmap-wx-jssdk.min.js')
 import { coostsType } from './handleCoots.js';
 import { handleMarkers, myPointMarker, markersKeyMap, hrPointMarker } from './handleMarkers.js';
-import { howFarFromMe } from './howFarFromMe.js';
+import { howFarFromMe, statisticeDistance } from './howFarFromMe.js';
 
 const myKey = 'S2OBZ-SG3R3-XJE36-3WSVH-ND7NT-HIF5Y';
 let evaluateResultVisible = false
@@ -88,6 +88,8 @@ Page({
            }],
            distanceInfo,
            evaluateResultVisible: true,
+        }, function() {
+          statisticeDistance(data.result.routes[0])
         })
        }
     }

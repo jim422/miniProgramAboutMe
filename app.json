@@ -1,16 +1,15 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/ranking-list/ranking-list",
     "pages/experiment-tips/experiment-tips",
-    
-    "pages/index/index",
     "pages/my-map/my-map",
     "pages/task-hall/task-hall"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#2C2930",
-    "navigationBarTitleText": "我的简历",
+    "navigationBarTitleText": "金峰杰的简历",
     "navigationBarTextStyle": "white"
   }
 }

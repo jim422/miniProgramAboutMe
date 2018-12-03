@@ -25,7 +25,7 @@ function howFarFromMe(result) {
       })
     }
   });
-  statisticeDistance(result)
+  //statisticeDistance(result)
 
   let vehicleScore = getStatus(transferBus + transferSubWay);
   let vehicleDes = getVehicleDes(transferBus + transferSubWay);
@@ -104,5 +104,6 @@ function statisticeDistance(result) {
 }
 
 export {
-  howFarFromMe
+  howFarFromMe,
+  statisticeDistance
 }

@@ -1,6 +1,6 @@
 <view class="container">
   <view class='header colorBase'>
-    <!-- <image src='../../assets/images/aboutMeImage.png' mode='scaleToFill' class='figure'></image> -->
+    <image src='../../assets/images/aboutMeImage.png' mode='scaleToFill' class='figure'></image>
 
     <view>
       <image src='../../assets/images/phone.png' mode='scaleToFill' class='phone' bindtap='giveCall'></image>
