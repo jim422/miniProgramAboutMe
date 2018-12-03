@@ -1,6 +1,7 @@
 .tips-container {
   position: absolute;
   background: #fff;
+  border: 1px solid black;
   visibility: hidden;
   border-radius: 5px;
   z-index: 100
@@ -17,10 +18,26 @@
   height: 0;
   border-color: transparent;
   border-style: solid;
+  z-index: 100;
 }
 
 .arrow-direct-left {
   visibility: visible;
   border-width: 6px 0 6px 6px;
-  border-left-color: #fff;
+  border-left-color: black;
+}
+.arrow-direct-right {
+  visibility: visible;
+  border-width: 6px 6px 6px 0;
+  border-right-color: black 
+}
+.arrow-direct-bottom {
+  visibility: visible;
+  border-width: 0 6px 6px 6px;
+  border-bottom-color: black;
+}
+.arrow-driect-top {
+  visibility: visible;
+  border-width: 6px 6px 0 6px;
+  border-top-color: black;
 }

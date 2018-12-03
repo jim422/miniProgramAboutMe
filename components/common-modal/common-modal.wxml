@@ -1,0 +1,10 @@
+<view>
+  <view bindtap='toggle'>
+   <slot name='trriger-el'></slot>
+  
+  </view>
+  <i-modal visible='{{visible}}' title='{{title}}' bind:ok='toggle' show-cancel="{{false}}">
+    <slot name='content'></slot>
+
+  </i-modal>
+</view>

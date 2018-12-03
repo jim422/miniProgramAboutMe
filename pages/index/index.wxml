@@ -13,8 +13,8 @@
     <swiper 
       class='classify'
       indicator-dots='true'
-      indicator-color='rgba(190, 224, 251, .7)'
-      indicator-active-color='rgba(78, 89, 254, .7)'
+      indicator-color='rgba(255, 255, 255, 1)'
+      indicator-active-color='rgba(232, 94, 71, 1)'
     >
       <swiper-item>
         <view class='sheet'>

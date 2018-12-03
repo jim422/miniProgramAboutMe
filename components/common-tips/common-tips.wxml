@@ -1,6 +1,6 @@
 <view>
-  <view catchtap='trigger'>
-    <slot name='trriger-el'  id='{{tipsId}}'></slot>
+  <view catchtap='trigger' id='{{tipsId}}'>
+    <slot name='trriger-el'></slot>
   </view>
   
   <view wx:if="{{caculateDone}}">

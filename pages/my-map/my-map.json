@@ -3,7 +3,6 @@
     "i-button": "../../components/iview-weapp/button/index",
     "i-input": "../../components/iview-weapp/input/index",
     "i-panel": "../../components/iview-weapp/panel/index",
-    "i-spin": "../../components/iview-weapp/spin/index",
-    "i-drawer": "../../components/iview-weapp/drawer/index"
+    "i-spin": "../../components/iview-weapp/spin/index"
   }
 }

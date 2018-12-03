@@ -21,7 +21,10 @@ Component({
     },
     tipsId: {
       type: String,
-      value: ''
+      value: '',
+      observer: function(cur, pre) {
+        
+      }
     },
     visible: {
       type: Boolean,
@@ -59,7 +62,12 @@ Component({
       deviceWidth = wx.getSystemInfoSync().windowWidth;
       standardAcrossLine = deviceHeight / 2;
       standardVerticalLine = deviceWidth / 2;
-  
+      this.triggerEvent('tipsIdAdd', {
+        tipsId: this.properties.tipsId
+      }, {
+        bubbles: true,
+        composed: true
+      })
   },
   methods: {
     trigger: function(e) {
@@ -69,7 +77,7 @@ Component({
 
     
       query.select('#' + e.target.id).boundingClientRect();
-
+      
       query.exec(function (res) {
         positionInfo = {
           offsetLeft: res[0]['left'],
@@ -81,8 +89,6 @@ Component({
           elWidth: res[0]['width'],
           elHeight: res[0]['height']
         }
-        
-
         self.triggerEvent('tips', {
           tipsId: e.target.id
         }, {
@@ -92,24 +98,23 @@ Component({
       })
       
     },
-
     caculatePosition: function(positionInfo) {
       let vertical;
       let across;
       if (positionInfo.clientX > standardVerticalLine) {
-        across = positionInfo.clientX + this.properties.width / 2 > deviceWidth ?
+        across = positionInfo.clientX + this.properties.width > deviceWidth ?
           'left' :
           'center'
       }
 
       if (positionInfo.clientX <= standardVerticalLine) {
-        across = positionInfo.clientX - this.properties.width / 2 < 0 ?
+        across = positionInfo.clientX - this.properties.width  < 0 ?
           'right' :
           'center'
       }
 
       if (positionInfo.clientY < standardAcrossLine) {
-        vertical = 'top'
+        vertical = 'bottom'
       }
 
       if (positionInfo.clientY >= standardAcrossLine) {
@@ -118,11 +123,6 @@ Component({
           'bottom'
       }
 
-      this.setData({
-        arrowClass: 'arrow-direct-' + across,
-        arrowTop: positionInfo.pageY,
-        arrowLeft: positionInfo.offsetLeft
-      })
       setTopAndLeft.positionList[across + '_' + vertical](positionInfo, this)
       
       this.setData({

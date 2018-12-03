@@ -6,6 +6,7 @@
     "i-collapse-item": "../../components/iview-weapp/collapse-item",
     "common-tips-area": "../../components/common-tips-area/common-tips-area",
     "common-tips": "../../components/common-tips/common-tips",
-    "special": "../../components/special/special"
+    "special": "../../components/special/special",
+    "common-modal": "../../components/common-modal/common-modal"
   }
 }

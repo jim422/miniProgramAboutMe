@@ -1,12 +1,12 @@
 .category {
-  margin: 20rpx 0; 
+  margin: 40rpx 0; 
   padding: 0 32rpx;
   font-size: 30rpx;
 }
 .category-item {
   height: 40rpx;
   line-height: 40rpx;
-  margin-bottom: 20rpx;
+  margin-bottom: 35rpx;
 }
 .category-item-text{
   display: inline-block;
@@ -25,12 +25,18 @@
   height: 40rpx!important;
   line-height: 40rpx!important;
 }
+.item .i-tabs-tab-title {
+  font-size: 30rpx!important;
+}
 .item .i-tabs-tab-title-current {
   color: #F18A06;
 }
 .item .i-tabs-tab-bar {
   background: transparent;
 } 
+.item .i-badge{
+  line-height: 0;
+}
 .detail {
   position: relative
 }

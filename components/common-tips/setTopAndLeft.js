@@ -1,58 +1,85 @@
+const arrowArea = 6 // 为三角箭头预留10px
 /**
  * params1 touch: 触屏信息
  * params2 params: component的 this 对象
  */
 
 function leftBottom(positionInfo, params) {
-  let left = positionInfo.offsetLeft - params.properties.width + 'px';
-  let top = positionInfo.pageY - params.properties.height + positionInfo.elHeight + 'px';
+  let left =  -params.properties.width - arrowArea + 'px';
+  let top = 10 + 'px';
 
   params.setData({
     top: top,
-    left: left
+    left: left,
+    arrowClass: 'arrow-direct-left',
+    arrowTop: positionInfo.elHeight / 2,
+    arrowLeft: -arrowArea
   })
 }
 
 function leftTop(positionInfo, params) {
 
-  let left = positionInfo.offsetLeft - params.properties.width + 'px';
-
-  //如果距离顶部高度小自身高度的1/2（因为有一半的内容会被截取） 那就在点击的坐标高度上显示，
-  let top = positionInfo.clientY < params.properties.height/3
-    ? positionInfo.pageY - 10 + 'px'
-    : positionInfo.pageY - params.properties.height/3 + 'px'
+  let left = - params.properties.width - arrowArea + 'px';
+  let top = -params.data.height + positionInfo.elHeight/2 + 5 + 'px';
   params.setData({
     top: top,
-    left: left
+    left: left,
+    arrowClass: 'arrow-direct-left',
+    arrowTop: positionInfo.elHeight / 2 - 10,
+    arrowLeft: -arrowArea
   })
 }
 
 function centerBottom(positionInfo, params) {
-  //let left = 
+  let top = positionInfo.elHeight + arrowArea + 'px';
+  let left = 0 + 'px';
+
+  params.setData({
+    top,
+    left,
+    arrowClass: 'arrow-direct-bottom',
+    arrowTop: positionInfo.elHeight,
+    arrowLeft: positionInfo.elWidth / 2
+  })
 
 }
 
 function centerTop(positionInfo, params) {
+  let left = '0px';
+  let top = -params.data.height - arrowArea + 'px';
 
+  params.setData({
+    top,
+    left,
+    arrowClass: 'arrow-driect-top',
+    arrowTop: - arrowArea,
+    arrowLeft: positionInfo.elWidth / 2
+  })
 }
 
 function rightBottom(positionInfo, params) {
-  let left = positionInfo.pageX + 'px';
-  let top = positionInfo.offsetTop - params.properties.height + 'px';
+  let left = positionInfo.elWidth + arrowArea + 'px';
+  let top = 10 + 'px';
 
   params.setData({
     top: top,
-    left: left
+    left: left,
+    arrowClass: 'arrow-direct-right',
+    arrowTop: positionInfo.elHeight / 2,
+    arrowLeft: positionInfo.elWidth
   })
 }
 
 function rightTop(positionInfo, params) {
-  let left = positionInfo.pageX + 'px';
-  let top = positionInfo.pageY + 'px';
+  let left = positionInfo.elWidth + arrowArea + 'px';
+  let top = -params.data.height + positionInfo.elHeight/2 + 5 + 'px';
 
   params.setData({
     top: top,
-    left: left
+    left: left,
+    arrowClass: 'arrow-direct-right',
+    arrowTop: positionInfo.elHeight / 2 - 10,
+    arrowLeft: positionInfo.elWidth
   })
 }
 

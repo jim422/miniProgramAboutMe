@@ -1,4 +1,4 @@
-<common-tips-area>
+
   <view wx:for="{{rankingList}}" class='ranking-item' wx:key='{{index}}'>
     <text class='ranking-numb {{index > 2 ? "" : "numb-high" }}'>{{index + 1}}</text>
     <image src='{{item.live_account_avatar_url}}' class='account-avatar' lazy-load='true'></image>
@@ -15,12 +15,20 @@
     </view>
     <view>
       SNBT: {{item.live_account_snbt}}
-      <common-tips title='{{"详细数据"}}' width='150' height='150' class='tips' tipsId='{{"other_" + index}}'>
-       <i-icon type='other' size='20' class='other' data-other='{{item}}' slot='trriger-el' id="{{'other_' + index}}" lazy-load='true'></i-icon>
+      <!-- <common-tips title='{{"详细数据"}}' width='150' height='150' class='tips' tipsId='{{"other_" + index}}'>
+       <i-icon type='other' size='25' class='other' data-other='{{item}}' slot='trriger-el' id="{{'other_' + index}}" lazy-load='true'></i-icon>
        <view slot='tips-content'>
         <special props='{{item}}'></special>
        </view>
-      </common-tips>
+      </common-tips> -->
+      <view style='display:inline-block'>
+        <common-modal>
+          <i-icon type='other' size='25' class='other' data-other='{{item}}' slot='trriger-el' id="{{'other_' + index}}" lazy-load='true'></i-icon>
+          <view slot='content'>
+          <special props='{{item}}'></special>
+        </view>
+        </common-modal>
+      </view>
+      
     </view>
   </view>
-</common-tips-area>

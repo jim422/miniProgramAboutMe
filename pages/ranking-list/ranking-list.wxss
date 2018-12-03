@@ -1,5 +1,6 @@
 page {
   background: rgb(48, 44, 66);
+  height: 100%;
   color: white;
 }
 .ranking-item {
@@ -53,28 +54,27 @@ page {
   display: inline-block;
   width: 40rpx;
   height: 40rpx;
-  background-image: url('http://chuanbo.weiboyi.com/style/module/images/icon/platform_zhibo_current_2x_v2.png');
   background-size: 100%;
 }
 
 .icon_108 {
-  background-position: 0 -434rpx;
+   background-image: url('http://img.weiboyi.com/img/uploadimg/platform_img/v1/huajiao.png');
 }
 
 .icon_105 {
-  background-position: 0 -672rpx;
+ background-image: url('http://img.weiboyi.com/img/uploadimg/platform_img/v1/yinke.png');
 }
 
 .icon_25 {
-  background-position: 0 -197rpx;
+   background-image: url('http://img.weiboyi.com/img/uploadimg/platform_img/v1/meipai.png');
 }
 
 .icon_106 {
-  background-position: 0 -395rpx;
+  background-image: url('http://img.weiboyi.com/img/uploadimg/platform_img/v1/yizhibo.png');
 }
 
-.icon_119 {
-  background-position: 0 -553rpx;
+.icon_115 {
+  background-image: url('http://img.weiboyi.com/img/uploadimg/platform_img/v1/douyin.png');
 }
 .tips {
   display: inline-block;
