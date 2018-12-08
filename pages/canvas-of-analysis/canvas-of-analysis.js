@@ -1,18 +1,28 @@
-// pages/experiment-tips/experiment-tips.js
+import {
+  howFarFromMe,
+  statisticeDistance
+} from './howFarFromMe.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    show: false
+    distanceInfo: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let app = getApp();
+    let route = app.globalData.route;
+    if (route === null) return;
+    let distanceInfo = howFarFromMe(route)
+    statisticeDistance(route)
+    this.setData({
+      distanceInfo
+    })
   },
 
   /**
@@ -56,9 +66,16 @@ Page({
   onReachBottom: function () {
 
   },
-  trigger: function() {
-    this.setData({
-      show: !this.data.show
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  },
+  goBack: function() {
+    wx.navigateBack({
+      delta: 1
     })
   }
 })

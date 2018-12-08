@@ -8,10 +8,11 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    
+    product: 1,
+    interactive: 1,
+    runningSlow: false
   },
   giveCall: function(event) {
-    console.log(app)
     wx.makePhoneCall({
       phoneNumber: app.globalData.phoneNumber,
     })
@@ -26,5 +27,27 @@ Page({
   },
   getUserInfo: function(e) {
     
+  },
+  handleEvaluate: function(e) {
+    const field = e.currentTarget.dataset.field
+    this.setData({
+      [field]: e.detail.index
+    })
+  },
+  toggle: function(e) {
+    this.setData({
+      runningSlow: e.detail.value
+    })
+  },
+  submit: function(e) {
+    let runningSlow = this.data.runningSlow ? 1 : 0;
+    wx.reportMonitor('product', this.data.product);
+    wx.reportMonitor('interactive', this.data.interactive);
+    wx.reportAnalytics('runningSlow', runningSlow);
+    wx.showToast({
+      title: '提交成功',
+      icon: 'success',
+      duration: 1000
+    })
   }
 })

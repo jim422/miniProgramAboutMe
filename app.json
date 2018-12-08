@@ -1,10 +1,12 @@
 {
   "pages": [
+    
     "pages/index/index",
     "pages/ranking-list/ranking-list",
-    "pages/experiment-tips/experiment-tips",
     "pages/my-map/my-map",
+    "pages/canvas-of-analysis/canvas-of-analysis",
     "pages/task-hall/task-hall"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

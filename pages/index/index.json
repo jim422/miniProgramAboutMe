@@ -2,7 +2,10 @@
   "usingComponents": {
     "base-info": "../../components/base-info/index",
     "work-experience": "../../components/work-experience/work-experience",
-    
-   "project-experience": "../../components/project-experience/project-experience"
+    "project-experience": "../../components/project-experience/project-experience",
+    "i-rate": "../../components/iview-weapp/rate/index",
+    "i-switch": "../../components/iview-weapp/switch/index",
+    "i-icon": "../../components/iview-weapp/icon/index",
+    "i-button": "../../components/iview-weapp/button/index"
   }
 }

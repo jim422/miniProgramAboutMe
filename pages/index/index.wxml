@@ -13,8 +13,8 @@
     <swiper 
       class='classify'
       indicator-dots='true'
-      indicator-color='rgba(255, 255, 255, 1)'
-      indicator-active-color='rgba(232, 94, 71, 1)'
+      indicator-color='rgba(164, 170, 185, .5)'
+      indicator-active-color='rgba(255, 255, 255, 1)'
     >
       <swiper-item>
         <view class='sheet'>
@@ -54,7 +54,51 @@
           </view>
         </view>
       </swiper-item>
-    </swiper>
 
+      <swiper-item>
+        <view class='sheet'>
+          <view class='contentHeader'>
+            <image class='contentHeaderImg' src='../../assets/images/rate.png'></image>
+            <text class='contentDes textColor'>您可以对此小程序评分</text>
+          </view>
+
+          <view class='evaluate-container textColor'>
+            <view class='rate'>
+              <view class='desc'>产品设计：</view>
+              <i-rate 
+                  count='{{5}}'
+                  bind:change='handleEvaluate'
+                  data-field='product'
+                  value='{{product}}'
+                ></i-rate>
+            </view>
+
+            <view class='rate'>
+              <view class='desc'>交互设计：</view>
+              <i-rate 
+                  count='{{5}}'
+                  bind:change='handleEvaluate'
+                  data-field='interactive'
+                  value='{{interactive}}'
+                ></i-rate>
+            </view>
+
+            <view class='rate'>
+              <view class='desc'>存在卡顿现象：</view>
+              <i-switch 
+                value='{{runningSlow}}' 
+                bind:change='toggle'
+                class='rate-switch'
+              >
+                <i-icon type='right' slot='open' color='#fff'></i-icon>
+                <i-icon type='close' slot='close' color='#fff'></i-icon>
+              </i-switch>
+            </view>
+
+            <i-button bind:click="submit" i-class='rate-button'>提交</i-button>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
   </view>
 </view>

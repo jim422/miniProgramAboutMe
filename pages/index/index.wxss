@@ -143,11 +143,11 @@ page {
   color: white;
 }
 .sheet .i-step-finish .i-step-ico {
-  color: rgb(32, 255, 133);
-  border: rgb(32, 255, 133) 1px solid
+  color: rgb(113, 84, 246);
+  border: rgb(113, 84, 246) 1px solid
 }
 .sheet .i-step-finish .i-step-line {
-  background: rgb(32, 255, 133);
+  background: rgb(113, 84, 246);
 }
 .project-experience {
   width: 100%
@@ -156,4 +156,29 @@ page {
   background: #040e18;
   padding: 0 40rpx;
   height: 110rpx;
+}
+.evaluate-container{
+
+}
+.rate{
+  line-height: 0;
+  margin: 20rpx 0;
+}
+.rate .desc {
+  display: inline-block;
+  width: 365rpx;
+  height: 60rpx;
+  text-align: right;
+}
+.text-area{
+  margin: 0 auto;
+  border: 1px solid rgba(258, 255, 245, .6);
+  border-radius: 4px;
+}
+.rate-switch .i-switch-checked{
+  background-color: rgb(113, 84, 246)!important; 
+}
+.rate-button{
+  background-color: rgb(113, 84, 246)!important;
+  margin: 50rpx!important;
 }

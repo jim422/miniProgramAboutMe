@@ -1,0 +1,13 @@
+<view class='back-button'>
+  <i-icon type="undo" size='30' color='white' bindtap='goBack' style='width: 30rpx'/>
+</view>
+<view class='evaluate-result-container' >
+    <view class='evaluate-emoji'>简单: 😄 ，一般：🙂 ，困难: ☹️</view>
+    <view class='evaluate-result-desc'>我与您的距离：{{distanceInfo.distance}} km {{distanceInfo.distanceScore}}</view>
+    <view class='evaluate-result-desc'>所需时间：{{distanceInfo.duration}} {{distanceInfo.durationSocre}}</view>
+    <view class='evaluate-result-desc'>出行方式: {{distanceInfo.vehicleDes}} {{distanceInfo.vehicleScore}}</view>
+  </view>
+  <canvas 
+    canvas-id="pieChart"
+    class='canvas-container'
+  ></canvas>

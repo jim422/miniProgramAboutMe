@@ -1,7 +1,13 @@
 let mapSdk = require('../../libs/qqmap-wx-jssdk/qqmap-wx-jssdk.min.js')
-import { coostsType } from './handleCoots.js';
-import { handleMarkers, myPointMarker, markersKeyMap, hrPointMarker } from './handleMarkers.js';
-import { howFarFromMe, statisticeDistance } from './howFarFromMe.js';
+import {
+  coostsType
+} from './handleCoots.js';
+import {
+  handleMarkers,
+  myPointMarker,
+  markersKeyMap,
+  hrPointMarker
+} from './handleMarkers.js';
 
 const myKey = 'S2OBZ-SG3R3-XJE36-3WSVH-ND7NT-HIF5Y';
 let evaluateResultVisible = false
@@ -21,11 +27,9 @@ Page({
     resultPoints: [],
     selectedMarkerId: null,
     evaluateResultVisible: false,
-    evaluateAnimationData: {},
-    distanceInfo: {},
     terminalText: ''
   },
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.animation = wx.createAnimation({
       duration: 1000,
       timingFunction: 'ease'
@@ -52,46 +56,45 @@ Page({
         this.myMap.moveToLocation()
       }
     })
-    
+
   },
   fetchDistance: function(e) {
     let data = e.target.dataset;
     let fromLon = this.data.myPoint.longitude;
-    let fromLa =  this.data.myPoint.latitude;
+    let fromLa = this.data.myPoint.latitude;
     let toLon = data.lon;
     let toLa = data.la
     var opt = {
       url: `https://apis.map.qq.com/ws/direction/v1/transit/?from=${fromLa},${fromLon}&to=${toLa},${toLon}&key=${myKey}`,
-       method: 'GET',
-       dataType: 'json',
-       success: (res) => {
-         let data = res.data;
+      method: 'GET',
+      dataType: 'json',
+      success: (res) => {
+        let data = res.data;
 
-         if (data.status != 0) {
-           wx.showToast({
-             title: '服务器异常',
-             duration: 1000
-           })
-           return
-         }
+        if (data.status != 0) {
+          wx.showToast({
+            title: '服务器异常',
+            duration: 1000
+          })
+          return
+        }
 
-         let coots = data.result.routes[0]
+        let coots = data.result.routes[0]
 
-         let info = coostsType['transit'](coots);
-         let distanceInfo = howFarFromMe(data.result.routes[0])
+        let info = coostsType['transit'](coots);
 
-         this.setData({
-           polyline: [{
-             points: info.pl,
-             color: '#FF0000DD',
-             width: 2
-           }],
-           distanceInfo,
-           evaluateResultVisible: true,
-        }, function() {
-          statisticeDistance(data.result.routes[0])
+        this.setData({
+          polyline: [{
+            points: info.pl,
+            color: '#FF0000DD',
+            width: 2
+          }],
+          evaluateResultVisible: true
         })
-       }
+
+        let app = getApp();
+        app.globalData.route = data.result.routes[0]
+      }
     }
     wx.request(opt)
   },
@@ -107,7 +110,7 @@ Page({
     var self = this
     this.sdk.search({
       keyword: value,
-      success: function (res) {
+      success: function(res) {
         if (res.count == 0) {
           wx.showToast({
             title: '没有找到相关信息',
@@ -124,9 +127,9 @@ Page({
             longitude: item.longitude
           }))
         })
-        let height = handledRes.length > 0 
-          ? 140
-          : 0;
+        let height = handledRes.length > 0 ?
+          140 :
+          0;
         self.animation.height(height).step()
         self.setData({
           markers: myPointMarker.concat(handledRes),
@@ -134,9 +137,9 @@ Page({
           animationData: self.animation.export(),
           evaluateResultVisible: false
         })
-        
+
       },
-      fail: function (res) {
+      fail: function(res) {
         console.log(res);
       }
     });
@@ -162,6 +165,11 @@ Page({
       selectedMarkerId: markerId,
       terminalText: markersKeyMap[markerId].title,
       evaluateResultVisible: false
+    })
+  },
+  redirectToAnalysis() {
+    wx.navigateTo({
+      url: '/pages/canvas-of-analysis/canvas-of-analysis',
     })
   }
 })

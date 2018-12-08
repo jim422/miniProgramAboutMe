@@ -32,10 +32,10 @@ function howFarFromMe(result) {
   let distanceScore = caculateDistanceScore(distance);
   let durationSocre = caculateDurationScore(result.duration)
 
-  return { 
-    transferBus, 
-    transferSubWay, 
-    distance, 
+  return {
+    transferBus,
+    transferSubWay,
+    distance,
     duration,
     vehicleScore,
     distanceScore,
@@ -49,7 +49,7 @@ function caculateDuration(time) {
     return `${time}分钟`
   } else {
     let hour = Math.floor(time / 60);
-    let minute = time % 60 < 10 
+    let minute = time % 60 < 10
       ? '0' + time % 60
       : time % 60
 
@@ -58,9 +58,9 @@ function caculateDuration(time) {
 }
 
 function caculateDistanceScore(distance) {
-  if(distance < 15) {
+  if (distance < 15) {
     return getStatus(1)
-  } else if (15<= distance && distance <= 30) {
+  } else if (15 <= distance && distance <= 30) {
     return getStatus(2)
   } else {
     return getStatus(3)
@@ -100,6 +100,7 @@ function statisticeDistance(result) {
       statistic[item.mode] = (statistic[item.mode] || 0) + item.distance
     }
   })
+  console.log(statistic, result.distance)
   drawPie(statistic, result.distance)
 }
 

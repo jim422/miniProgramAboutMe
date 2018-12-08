@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "common-tips-area": "../../components/common-tips-area/common-tips-area",
-    "common-tips": "../../components/common-tips/common-tips"
-  }
-}

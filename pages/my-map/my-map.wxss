@@ -60,8 +60,10 @@ page {
   color: rgb(221, 61, 175)
 }
 .common-button{
-  background: rgb(67, 200, 152)!important;
+  background: rgb(245, 140, 127)!important;
   color: white;
+  height:70rpx!important;
+  line-height:70rpx!important;
 }
 .current-terminal {
   color: white;
@@ -69,50 +71,29 @@ page {
   margin-top: 5rpx;
   font-size: 28rpx;
 }
-.evaluate-result-container{
-  padding-top: 60rpx;
-  color: white;
-  font-size: 35rpx;
-}
-.evaluate-result-container .evaluate-result-desc {
-  margin-left: 154rpx;
-  margin-top: 10rpx;
-}
-.evaluate-emoji{
-  font-size: 27rpx;
-  padding-left: 28rpx;
-  margin-bottom: 70rpx;
-}
-.evaluate-move-up{
-  display: block;
-  width: 105rpx;
-  height: 68rpx;
-  margin: 20px auto 2px auto;
-  transform-origin: 50% 50% 0px;
-}
-.move-up-trigger {
-  animation: shake 2500ms linear;
-  animation-iteration-count: 1;
-}
-@keyframes shake {
-  0% {
-    transform: translateY(0px)
-  }
-  25% {
-    transform: translateY(-12px)
-  }
-  50% {
-    transform: translateY(0px)
-  }
-  75% {
-    transform: translateY(-12px)
-  }
-  100% {
-    transform: translateY(0px)
-  }
-}
+
+
 .more-tip{
+  width: 50%;
+  height: 50rpx;
   font-size: 26rpx;
   color: white;
   text-align: center;
+  border:1px solid rgb(245, 140, 127);
+	border-radius:5px;
+  margin: 50rpx auto;
+  animation: breathe 2800ms infinite;
+  animation-timing-function: ease-in-out;
+  line-height: 50rpx;
+}
+@keyframes breathe {
+  	0% {
+      opacity:.2;
+      box-shadow:0 1px 2px rgba(245, 140, 127, 0.5);
+    }
+    100% {
+      opacity:1;
+      border:1px solid rgba(246, 96, 196,1);
+      box-shadow:0 1px 30px rgba(246, 96, 196,1);
+    }
 }

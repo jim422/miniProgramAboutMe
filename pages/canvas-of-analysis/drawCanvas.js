@@ -20,10 +20,10 @@ function drawPie(statistic, amount) {
   let beginAngle = 0;
   let endAngle = 0;
   let keys = Object.keys(statistic);
-  
+
   keys.forEach(item => {
     beginAngle = endAngle;
-    endAngle = beginAngle + 2*Math.PI * statistic[item] * perProportion;
+    endAngle = beginAngle + 2 * Math.PI * statistic[item] * perProportion;
     ctx.beginPath();
     ctx.moveTo(ARC_X, ARC_Y);
     ctx.arc(ARC_X, ARC_Y, RADIUS, beginAngle, endAngle);
@@ -31,11 +31,11 @@ function drawPie(statistic, amount) {
     ctx.setFillStyle(Fill_STYLE[item]);
     ctx.fill();
   })
-  drawPieText({ctx, statistic, perProportion})
+  drawPieText({ ctx, statistic, perProportion })
   ctx.draw()
 }
 
-function drawPieText({statistic, perProportion, ctx}) {
+function drawPieText({ statistic, perProportion, ctx }) {
   const WIDTH = 30;
   const HEIGHT = 5;
   const RECT_BASE_LINE_X = 250;
@@ -53,7 +53,7 @@ function drawPieText({statistic, perProportion, ctx}) {
     ctx.setTextBaseline('middle')
     ctx.setFontSize(12);
     ctx.setFillStyle('white');
-    ctx.fillText(text, RECT_BASE_LINE_X + WIDTH + MARGIN, y +3)
+    ctx.fillText(text, RECT_BASE_LINE_X + WIDTH + MARGIN, y + 3)
   })
 }
 

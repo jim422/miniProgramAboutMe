@@ -11,8 +11,7 @@
   bindmarkertap='markerTap'
   show-location
 ></map>
-<swiper vertical='true' style='height: 100%'>
-<swiper-item>
+
 <view class='search-el'>
   <i-input 
       title='公司地址'
@@ -34,6 +33,7 @@
   style="width: 100%" 
   class='search-result-container'
   animation='{{animationData}}'
+  scroll-with-animation='true'
   scroll-into-view='{{selectedMarkerId}}'
 >
   <view 
@@ -62,31 +62,11 @@
     获取我与您的距离
   </i-button>
 
-  <image 
-    src='../../assets/images/moveToUp.png'
-    class='evaluate-move-up {{evaluateResultVisible ? "move-up-trigger" : ""}}'
-    wx:if='{{evaluateResultVisible}}'
-  ></image>
   <view 
     wx:if='{{evaluateResultVisible}}'
+    bindtap='redirectToAnalysis'
     class='more-tip'
-  >向上滑动查看更多</view>
+  >show more</view>
 
-
-</swiper-item>
-
-<swiper-item wx:if='{{evaluateResultVisible}}'>
-  <view class='evaluate-result-container' >
-    <view class='evaluate-emoji'>简单: 😄 ，一般：🙂 ，困难: ☹️</view>
-    <view class='evaluate-result-desc'>我与您的距离：{{distanceInfo.distance}} km {{distanceInfo.distanceScore}}</view>
-    <view class='evaluate-result-desc'>所需时间：{{distanceInfo.duration}} {{distanceInfo.durationSocre}}</view>
-    <view class='evaluate-result-desc'>出行方式: {{distanceInfo.vehicleDes}} {{distanceInfo.vehicleScore}}</view>
-  </view>
-  <canvas 
-    style='width: 100%; height: 300rpx;'
-    canvas-id="pieChart"
-  ></canvas>
-</swiper-item>
-</swiper>
 </view>
 
