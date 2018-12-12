@@ -1,10 +1,7 @@
-//index.js
-//获取应用实例
 const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -37,6 +34,11 @@ Page({
   toggle: function(e) {
     this.setData({
       runningSlow: e.detail.value
+    })
+  },
+  showSkillCanvas: function() {
+    wx.navigateTo({
+      url: '/pages/canvas-of-skill/canvas-of-skill'
     })
   },
   submit: function(e) {

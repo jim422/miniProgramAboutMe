@@ -4,7 +4,6 @@ page {
 .container {
   height: 100%;
   width: 100%;
-  background-color: #DDDDDD;
 }
 .colorBase {
   background-color: #040e18;
@@ -181,4 +180,25 @@ page {
 .rate-button{
   background-color: rgb(113, 84, 246)!important;
   margin: 50rpx!important;
+}
+
+.skill-item-text {
+  display: inline-block;
+  width: 28%;
+  text-align: right;
+}
+.skill-item {
+  display: inline-block;
+  width: 72%;
+}
+.skill-bg {
+  background-color: #040e18!important;
+}
+.gradient  {
+  background: -webkit-linear-gradient(left, #893AB5, #CB578C)!important;
+}
+.money-qr-code {
+  margin: 30rpx auto;
+  width: 550rpx;
+  height: 550rpx;
 }

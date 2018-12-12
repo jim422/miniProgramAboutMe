@@ -6,6 +6,7 @@
     "i-rate": "../../components/iview-weapp/rate/index",
     "i-switch": "../../components/iview-weapp/switch/index",
     "i-icon": "../../components/iview-weapp/icon/index",
-    "i-button": "../../components/iview-weapp/button/index"
+    "i-button": "../../components/iview-weapp/button/index",
+    "i-progress": "../../components/iview-weapp/progress/index"
   }
 }

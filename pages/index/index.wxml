@@ -1,6 +1,6 @@
 <view class="container">
   <view class='header colorBase'>
-    <image src='../../assets/images/aboutMeImage.png' mode='scaleToFill' class='figure'></image>
+    <!-- <image src='../../assets/images/aboutMeImage.png' mode='scaleToFill' class='figure'></image> -->
 
     <view>
       <image src='../../assets/images/phone.png' mode='scaleToFill' class='phone' bindtap='giveCall'></image>
@@ -19,7 +19,7 @@
       <swiper-item>
         <view class='sheet'>
           <view class='contentHeader'>
-            <image class='contentHeaderImg' src='../../assets/images/baseInfo.png'></image>
+            <i-icon type="addressbook_fill" size='35' color='white'/>
             <text class='contentDes textColor'>基础信息</text>
           </view>
           <base-info></base-info>
@@ -28,7 +28,7 @@
       <swiper-item>
         <view class='sheet'>
           <view class='contentHeader'>
-            <image class='contentHeaderImg' src='../../assets/images/work.png'></image>
+            <i-icon type="tasklist_fill" size='35' color='white' />
             <text class='contentDes textColor'>工作经历</text>
           </view>
 
@@ -58,7 +58,44 @@
       <swiper-item>
         <view class='sheet'>
           <view class='contentHeader'>
-            <image class='contentHeaderImg' src='../../assets/images/rate.png'></image>
+              <image class='contentHeaderImg' src='../../assets/images/skill.png'></image>
+              <text class='contentDes textColor'>技能</text>
+          </view>
+
+          <view class='skill-container textColor'>
+            <text class='skill-item-text'>js：</text>
+            <view class='skill-item'>
+              <i-progress percent="80" status="active" i-bg-color='gradient' i-class='skill-bg'></i-progress>
+            </view>
+            
+            <text class='skill-item-text'>react：</text>
+            <view class='skill-item'>
+              <i-progress percent="75" status="active" i-bg-color='gradient' i-class='skill-bg'></i-progress>
+            </view>
+            
+            <text class='skill-item-text'>knockout：</text>
+            <view class='skill-item'>
+              <i-progress percent="80" status="active" i-bg-color='gradient' i-class='skill-bg'></i-progress>
+            </view>
+
+            <text class='skill-item-text'>html：</text>
+            <view class='skill-item'>
+              <i-progress percent="70" status="active" i-bg-color='gradient' i-class='skill-bg'></i-progress>
+            </view>
+
+            <text class='skill-item-text'>css：</text>
+            <view class='skill-item'>
+              <i-progress percent="70" status="active" i-bg-color='gradient' i-class='skill-bg'></i-progress>
+            </view>
+            <i-button bind:click="showSkillCanvas" i-class='rate-button'>查看饼状图</i-button>
+          </view>
+        </view>
+      </swiper-item>
+
+      <swiper-item>
+        <view class='sheet'>
+          <view class='contentHeader'>
+            <i-icon type="collection_fill" size='35' color='white'/>
             <text class='contentDes textColor'>您可以对此小程序评分</text>
           </view>
 
@@ -99,6 +136,24 @@
           </view>
         </view>
       </swiper-item>
+
+      <swiper-item>
+        <view class='sheet'>
+          <view class='contentHeader'>
+            <i-icon type="transaction_fill" size='35' color='white'/>
+            <text class='contentDes textColor'>打赏</text>
+          </view>
+
+          <view class='money-qr-code'> 
+            <image 
+              src='../../assets/images/money_qr_code.png'
+              lazy-load='true'
+              style='width: 100; heigth: 100%'
+            ></image>
+          </view>
+        </view>
+      </swiper-item>
+
     </swiper>
   </view>
 </view>

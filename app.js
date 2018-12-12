@@ -15,7 +15,6 @@ App({
     // 获取用户信息
     wx.getSetting({
       success: res => {
-        console.log(res)
         if (res.authSetting['scope.userInfo'] == undefined) {
         }
 

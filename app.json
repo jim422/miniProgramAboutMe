@@ -1,12 +1,12 @@
 {
   "pages": [
-    
+    "pages/my-map/my-map",
     "pages/index/index",
     "pages/ranking-list/ranking-list",
-    "pages/my-map/my-map",
-    "pages/canvas-of-analysis/canvas-of-analysis",
-    "pages/task-hall/task-hall"
     
+    "pages/canvas-of-analysis/canvas-of-analysis",
+    "pages/task-hall/task-hall",
+    "pages/canvas-of-skill/canvas-of-skill"
   ],
   "window": {
     "backgroundTextStyle": "light",
