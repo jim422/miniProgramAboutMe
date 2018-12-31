@@ -1,12 +1,13 @@
 function transit(coots) {
   let polylineList = [];
   let pl = [];
-  var kr = 1000000;
+  let markers =[]
+  let kr = 1000000;
   coots.steps.forEach(item => {
     if (item.mode == 'WALKING') {
       polylineList = caculateWalkPoly(item, polylineList)
     } else if (item.mode == 'TRANSIT') {
-      
+      console.log(item)
       polylineList = polylineList.concat(item.lines[0].polyline)
     }
   })

@@ -34,6 +34,7 @@ App({
   globalData: {
     userInfo: null,
     phoneNumber: '15201381389',
-    route: null
+    route: null,
+    visitedMap: false
   }
 })

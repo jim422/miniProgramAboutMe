@@ -81,7 +81,6 @@ page {
   flex-direction: column;
   align-items: center;
 }
-
 .textSelection > text, .textSelection > view {
   margin-top: 10rpx;
 }
@@ -199,6 +198,6 @@ page {
 }
 .money-qr-code {
   margin: 30rpx auto;
-  width: 550rpx;
-  height: 550rpx;
+  width: 500rpx;
+  height: 500rpx;
 }

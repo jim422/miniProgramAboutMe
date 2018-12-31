@@ -10,7 +10,7 @@ import {
 } from './handleMarkers.js';
 
 const myKey = 'S2OBZ-SG3R3-XJE36-3WSVH-ND7NT-HIF5Y';
-let evaluateResultVisible = false
+let app = getApp();
 Page({
   data: {
     longitude: '',
@@ -56,7 +56,7 @@ Page({
         this.myMap.moveToLocation()
       }
     })
-
+    app.globalData.visitedMap = true;
   },
   fetchDistance: function(e) {
     let data = e.target.dataset;
@@ -92,7 +92,6 @@ Page({
           evaluateResultVisible: true
         })
 
-        let app = getApp();
         app.globalData.route = data.result.routes[0]
       }
     }

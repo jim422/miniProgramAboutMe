@@ -1,10 +1,26 @@
-<!--components/base-info/index.wxml-->
-<view class='textSelection textColor'>
+
+<view class='base-info-selection textColor'>
   <text>姓名：金峰杰</text>
   <text>性别：男</text>
-  <text>年龄： 26岁（1992年）</text>
+  <text>年龄：27岁（1992年）</text>
   <text>职位：前端开发</text>
-  <view class='flex'>
-    <image src='../../assets/images/git.png' class='git'></image>：https://github.com/jim422
+  <view>
+    邮箱：{{email}}
+    <image 
+      src='../../assets/images/copy.png' 
+      class='copy'
+      bindtap='copyInfo'
+      data-info='{{email}}' 
+    ></image>
+  </view>
+
+  <view>
+    微信：{{weChat}}
+    <image 
+      src='../../assets/images/copy.png' 
+      class='copy' 
+      bindtap='copyInfo'
+      data-info="{{weChat}}"
+    ></image>
   </view>
 </view>

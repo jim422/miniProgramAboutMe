@@ -7,7 +7,15 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     product: 1,
     interactive: 1,
-    runningSlow: false
+    runningSlow: false,
+    showVisitMapTip: false,
+    actions: [{
+      name: '进去看看',
+      color: '#2d8cf0'
+    }, {
+      name: '取消'
+    }],
+    mapHighlight: false
   },
   giveCall: function(event) {
     wx.makePhoneCall({
@@ -18,9 +26,6 @@ Page({
     wx.navigateTo({
       url: '/pages/my-map/my-map',
     })
-  },
-  onLoad: function () {
-    
   },
   getUserInfo: function(e) {
     
@@ -51,5 +56,27 @@ Page({
       icon: 'success',
       duration: 1000
     })
+  },
+  swiperChange(e) {
+    if (e.detail.current == 4 && app.globalData.visitedMap == false) {
+      setTimeout(() => {
+          this.setData({
+            showVisitMapTip: true
+          })
+      }, 500)
+      
+    }
+  },
+  handleModal(e) {
+    if (e.detail.index === 0) {
+      wx.navigateTo({
+        url: '/pages/my-map/my-map',
+      })
+    }
+    app.globalData.visitedMap = true
+    this.setData({
+      showVisitMapTip: false
+    });
+
   }
 })

@@ -15,6 +15,7 @@
       indicator-dots='true'
       indicator-color='rgba(164, 170, 185, .5)'
       indicator-active-color='rgba(255, 255, 255, 1)'
+      bindchange='swiperChange'
     >
       <swiper-item>
         <view class='sheet'>
@@ -137,7 +138,7 @@
         </view>
       </swiper-item>
 
-      <swiper-item>
+      <!-- <swiper-item>
         <view class='sheet'>
           <view class='contentHeader'>
             <i-icon type="transaction_fill" size='35' color='white'/>
@@ -148,12 +149,17 @@
             <image 
               src='../../assets/images/money_qr_code.png'
               lazy-load='true'
-              style='width: 100; heigth: 100%'
+              style='width: 100%; heigth: 100%'
             ></image>
           </view>
         </view>
-      </swiper-item>
+      </swiper-item> -->
 
     </swiper>
   </view>
 </view>
+
+<i-modal visible="{{showVisitMapTip}}" bind:click='handleModal' actions='{{actions}}'>
+  <view>如果您看到此提示</view>
+  <view>说明您还未进入地图页面</view>
+</i-modal>
