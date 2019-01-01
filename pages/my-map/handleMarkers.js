@@ -3,12 +3,9 @@ const myPointMarker = [{
   title: '应聘者位置',
   latitude: 40.072019,
   longitude: 116.360161,
-  callout: {
+  label: {
     content: '应聘者位置',
-    color: '#fff',
-    borderRadius: 3,
-    bgColor: '#FC2B56',
-    padding: 3,
+    color: 'white'
   }
 }]
 
@@ -59,19 +56,55 @@ function hrPointMarker(longitude, latitude) {
     title: '我的位置',
     latitude: latitude,
     longitude: longitude,
-    callout: {
+    label: {
       content: '我的位置',
-      color: '#fff',
-      borderRadius: 3,
-      bgColor: '#FC2B56',
-      padding: 3
+      color: 'white'
     }
   }]
+}
+
+function removeCompanyMarkers(markers, selectedMarkerId) {
+  return markers.filter(item => item.id === 0 || item.id === selectedMarkerId )
+}
+
+function markTransferPoints(marker, coots) {
+  let list = [];
+  coots.steps.forEach(item => {
+    if(item.mode == 'TRANSIT') {
+      let info = item.lines[0]
+      list.push(putItIn(info.geton, 'on', info.vehicle))
+      list.push(putItIn(info.getoff, 'off', info.vehicle))
+    }
+  })
+  return list
+}
+
+function putItIn(data, action, type) {
+  let tips = action == 'on' ? '站上车' : '站下车';
+  let iconPath = type === 'SUBWAY' 
+    ? '../../assets/images/subway.png'
+    : '../../assets/images/bus.png'
+  return {
+    id: data.id,
+    title: data.title,
+    latitude: data.location.lat,
+    longitude: data.location.lng,
+    callout: {
+      content: data.title + tips,
+      color: '#fff',
+      borderRadius: 3,
+      padding: 3,
+      bgColor: '#FC2B56'
+    },
+    iconPath
+  }
 }
 
 export {
   handleMarkers,
   myPointMarker,
   markersKeyMap,
-  hrPointMarker
+  hrPointMarker,
+  removeCompanyMarkers,
+  markTransferPoints
 }

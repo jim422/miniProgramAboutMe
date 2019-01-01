@@ -60,7 +60,7 @@ page {
   color: rgb(221, 61, 175)
 }
 .common-button{
-  background: rgb(189, 91, 242)!important;
+  background: rgb(113, 84, 246)!important;
   color: white;
   height:70rpx!important;
   line-height:70rpx!important;

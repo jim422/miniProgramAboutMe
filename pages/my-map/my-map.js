@@ -6,7 +6,9 @@ import {
   handleMarkers,
   myPointMarker,
   markersKeyMap,
-  hrPointMarker
+  hrPointMarker,
+  removeCompanyMarkers,
+  markTransferPoints
 } from './handleMarkers.js';
 
 const myKey = 'S2OBZ-SG3R3-XJE36-3WSVH-ND7NT-HIF5Y';
@@ -83,13 +85,17 @@ Page({
 
         let info = coostsType['transit'](coots);
 
+        let markers = removeCompanyMarkers(this.data.markers, this.data.selectedMarkerId);
+        let transferMarkers = markTransferPoints(markers, coots)
+
         this.setData({
           polyline: [{
             points: info.pl,
             color: '#FF0000DD',
             width: 2
           }],
-          evaluateResultVisible: true
+          evaluateResultVisible: true,
+          markers: myPointMarker.concat(transferMarkers)
         })
 
         app.globalData.route = data.result.routes[0]
@@ -134,7 +140,8 @@ Page({
           markers: myPointMarker.concat(handledRes),
           resultPoints: handledRes,
           animationData: self.animation.export(),
-          evaluateResultVisible: false
+          evaluateResultVisible: false,
+          polyline: []
         })
 
       },
